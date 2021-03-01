@@ -1,0 +1,212 @@
+[
+  {
+    "ticker": "BRK-A",
+    "changes": -3220,
+    "price": "364580",
+    "changesPercentage": "(-0.88%)",
+    "companyName": "Berkshire Hathaway Inc"
+  },
+  {
+    "ticker": "BKNG",
+    "changes": 55.31,
+    "price": "2328.51",
+    "changesPercentage": "(+2.43%)",
+    "companyName": "Booking Holdings Inc"
+  },
+  {
+    "ticker": "TTD",
+    "changes": 50.8,
+    "price": "805.39",
+    "changesPercentage": "(+6.73%)",
+    "companyName": "Trade Desk Inc"
+  },
+  {
+    "ticker": "CABO",
+    "changes": -42.88,
+    "price": "1914.85",
+    "changesPercentage": "(-2.19%)",
+    "companyName": "Cable One Inc"
+  },
+  {
+    "ticker": "SOXL",
+    "changes": 37.38,
+    "price": "580.66",
+    "changesPercentage": "(+6.88%)",
+    "companyName": "Direxion Daily Semiconductor Bull 3x Shares"
+  },
+  {
+    "ticker": "SHOP",
+    "changes": 35.87,
+    "price": "1280.97",
+    "changesPercentage": "(+2.88%)",
+    "companyName": "Shopify Inc"
+  },
+  {
+    "ticker": "AMZN",
+    "changes": 35.77,
+    "price": "3092.93",
+    "changesPercentage": "(+1.17%)",
+    "companyName": "Amazon.com Inc"
+  },
+  {
+    "ticker": "CMG",
+    "changes": 31.26,
+    "price": "1442",
+    "changesPercentage": "(+2.22%)",
+    "companyName": "Chipotle Mexican Grill Inc"
+  },
+  {
+    "ticker": "W",
+    "changes": 30.93,
+    "price": "288.98",
+    "changesPercentage": "(+11.99%)",
+    "companyName": "Wayfair Inc"
+  },
+  {
+    "ticker": "MELI",
+    "changes": 25.05,
+    "price": "1638.11",
+    "changesPercentage": "(+1.55%)",
+    "companyName": "Mercadolibre Inc"
+  },
+  {
+    "ticker": "ABNB",
+    "changes": 24.29,
+    "price": "206.35",
+    "changesPercentage": "(+13.34%)",
+    "companyName": "Airbnb, Inc."
+  },
+  {
+    "ticker": "OFLX",
+    "changes": 24,
+    "price": "172.5",
+    "changesPercentage": "(+16.16%)",
+    "companyName": "Omega Flex Inc"
+  },
+  {
+    "ticker": "ETSY",
+    "changes": 22.69,
+    "price": "220.27",
+    "changesPercentage": "(+11.48%)",
+    "companyName": "ETSY Inc"
+  },
+  {
+    "ticker": "CVNA",
+    "changes": 19.84,
+    "price": "283.5",
+    "changesPercentage": "(+7.52%)",
+    "companyName": "Carvana Co"
+  },
+  {
+    "ticker": "LRCX",
+    "changes": 19.54,
+    "price": "567.19",
+    "changesPercentage": "(+3.57%)",
+    "companyName": "Lam Research Corp"
+  },
+  {
+    "ticker": "HUBS",
+    "changes": 19.39,
+    "price": "515",
+    "changesPercentage": "(+3.91%)",
+    "companyName": "HubSpot Inc"
+  },
+  {
+    "ticker": "FCNCA",
+    "changes": -19.05,
+    "price": "737.89",
+    "changesPercentage": "(-2.52%)",
+    "companyName": "First Citizens BancShares Inc (Delaware)"
+  },
+  {
+    "ticker": "MSTR",
+    "changes": 18.8,
+    "price": "750.41",
+    "changesPercentage": "(+2.57%)",
+    "companyName": "MicroStrategy Inc"
+  },
+  {
+    "ticker": "SIVB",
+    "changes": -17.77,
+    "price": "505.36",
+    "changesPercentage": "(-3.40%)",
+    "companyName": "SVB Financial Group"
+  },
+  {
+    "ticker": "RH",
+    "changes": 17.29,
+    "price": "490.37",
+    "changesPercentage": "(+3.65%)",
+    "companyName": "RH"
+  },
+  {
+    "ticker": "NVDA",
+    "changes": 16.28,
+    "price": "548.58",
+    "changesPercentage": "(+3.06%)",
+    "companyName": "NVIDIA Corp"
+  },
+  {
+    "ticker": "ENV",
+    "changes": -15.98,
+    "price": "64.02",
+    "changesPercentage": "(-19.98%)",
+    "companyName": "Envestnet Inc"
+  },
+  {
+    "ticker": "DPST",
+    "changes": -15.57,
+    "price": "215.38",
+    "changesPercentage": "(-6.74%)",
+    "companyName": "Direxion Daily Regional Banks Bull 3X Shares"
+  },
+  {
+    "ticker": "TWLO",
+    "changes": 15.29,
+    "price": "392.88",
+    "changesPercentage": "(+4.05%)",
+    "companyName": "Twilio Inc"
+  },
+  {
+    "ticker": "ATRI",
+    "changes": -15.1,
+    "price": "624.9",
+    "changesPercentage": "(-2.36%)",
+    "companyName": "Atrion Corp"
+  },
+  {
+    "ticker": "WIX",
+    "changes": 15.07,
+    "price": "348.57",
+    "changesPercentage": "(+4.52%)",
+    "companyName": "Wix.Com Ltd"
+  },
+  {
+    "ticker": "CRM",
+    "changes": -14.58,
+    "price": "216.5",
+    "changesPercentage": "(-6.31%)",
+    "companyName": "Salesforce.Com Inc"
+  },
+  {
+    "ticker": "UHAL",
+    "changes": 14.53,
+    "price": "574.72",
+    "changesPercentage": "(+2.59%)",
+    "companyName": "Amerco"
+  },
+  {
+    "ticker": "GHC",
+    "changes": 14.37,
+    "price": "600.83",
+    "changesPercentage": "(+2.45%)",
+    "companyName": "Graham Holdings Co"
+  },
+  {
+    "ticker": "SEDG",
+    "changes": 13.98,
+    "price": "298.31",
+    "changesPercentage": "(+4.92%)",
+    "companyName": "Solaredge Technologies Inc"
+  }
+]
