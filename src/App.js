@@ -73,7 +73,7 @@ class App extends React.Component {
 
           <div className='row row-cols-xl-5 row-cols-md-3 row-cols-sm-2'>
             {this.state.list.map((stock, index) => (
-            <Card stock={stock}/>
+            <Card stock={stock} key={stock.ticker}/>
             ))}
           </div>
         </div>
