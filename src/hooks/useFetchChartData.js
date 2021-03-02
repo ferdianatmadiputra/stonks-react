@@ -19,8 +19,10 @@ export default function useFetchChart(url, reload) {
     })
     .then((result) => {
       setData(result)
+      console.log(result, 'dari ufetchchart')
     })
     .catch((err) => {
+      console.log(err, 'ini dari si fetchchartdata')
       setError(err)
     })
     .finally((_) => {

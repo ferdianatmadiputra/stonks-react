@@ -3,6 +3,7 @@ import ReactApexChart from "react-apexcharts"
 const dayjs = require('dayjs')
 export default function Chart (props) {
       const chartData = props.chartData
+      console.log(chartData)
       if (chartData && chartData.length > 0) {
         const historicals = chartData[0].historical
         let candlesticks = []
