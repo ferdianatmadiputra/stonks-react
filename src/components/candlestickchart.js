@@ -1,13 +1,18 @@
 import React from 'react'
 import ReactApexChart from "react-apexcharts"
 const dayjs = require('dayjs')
-class ApexChart extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    
-      series: [{
+export default function Chart (props) {
+      const chartData = props.chartData
+      // const historicals = chartData[0].historical
+      // let candlesticks = []
+      // historicals.map((el)=> {
+      //   let aCandle = {
+      //     x: el.date, //can also straight el.label
+      //     y: [el.open]
+      //   }
+      // })
+      console.log(chartData, 'isi chartdata')
+      const series = [{
         name: 'candle',
         data: [
           {
@@ -251,34 +256,15 @@ class ApexChart extends React.Component {
             y: [6604.98, 6606, 6604.07, 6606]
           },
         ]
-      }],
-      options: {
+      }]
+      const options= {
         chart: {
           height: 350,
           type: 'candlestick',
         },
         title: {
-          text: 'CandleStick Chart - Category X-axis',
+          text: 'S&P 500 Daily Chart',
           align: 'left'
-        },
-        annotations: {
-          xaxis: [
-            {
-              x: 'Oct 06 14:00',
-              borderColor: '#00E396',
-              label: {
-                borderColor: '#00E396',
-                style: {
-                  fontSize: '12px',
-                  color: '#fff',
-                  background: '#00E396'
-                },
-                orientation: 'horizontal',
-                offsetY: 7,
-                text: 'Annotation Test'
-              }
-            }
-          ]
         },
         tooltip: {
           enabled: true,
@@ -287,7 +273,7 @@ class ApexChart extends React.Component {
           type: 'category',
           labels: {
             formatter: function(val) {
-              return dayjs(val).format('MMM DD HH:mm')
+              return dayjs(val).format('DD/MM/YYYY')
             }
           }
         },
@@ -296,24 +282,14 @@ class ApexChart extends React.Component {
             enabled: true
           }
         }
-      },
-    
-    
-    };
-  }
+      }
 
-
-
-  render() {
     return (
       <div>
         <div id="chart">
-          <ReactApexChart options={this.state.options} series={this.state.series} type="candlestick" height={350} />
+          <ReactApexChart options={options} series={series} type="candlestick" height={350} />
         </div>
         <div id="html-dist"></div>
       </div>
     );
-  }
 }
-
-export default ApexChart
