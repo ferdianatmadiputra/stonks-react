@@ -15,7 +15,7 @@ function App () {
   const [list, loading, filterData, setList, setLoading, error] = useFetch(url, reload)
 
   // const urlHistorical = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?timeseries=5&apikey=${apikey}`
-  const urlHistorical = 'http://localhost:3000/historicalStockList?symbol=GOOG'
+  const urlHistorical = 'http://localhost:3000/historicalStockList?symbol=AMZN'
   const [urlChart, setUrlChart] = useState(urlHistorical)
   const [chartData, chartLoading, setChartData, setChartLoading, errorChart] =useFetchChart(urlChart)
 
