@@ -6,7 +6,6 @@ export default function useFetch(url, reload) {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
-  console.log('useFetch ketrigger')
   useEffect (() => {
     setLoading(true)
     fetch(url)
@@ -18,6 +17,7 @@ export default function useFetch(url, reload) {
       }
     })
     .then((result) => {
+      console.log('useFetch ketrigger')
       setData(result)
     })
     .catch((err) => {

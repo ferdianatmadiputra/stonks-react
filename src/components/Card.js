@@ -1,8 +1,14 @@
 import React, { }  from 'react'
 import { useHistory, useLocation, useParams, Switch, Route } from 'react-router-dom'
+import { useSelector, useDispatch, shallowEqual } from 'react-redux'
+import { addWatchlist, removeWatchlist } from '../store/actions'
 
 
 export default function Card (props) {
+  const dispatch = useDispatch()
+  const watchlist = useSelector(state=> state.watchlist)
+
+
   const history = useHistory()
 
   let stock = props.stock
@@ -16,11 +22,17 @@ export default function Card (props) {
     }, 2000)
   }
 
-  function addToWatchlist () {
-    console.log('trigger')
-    setTimeout(() => {
-      history.push(`/detail/${stock.ticker}`)
-    }, 2000)
+  function toggleWatchlist () {
+    if (!watchlist.includes(stock.ticker)) {
+      console.log('trigger addWatchlist', stock.ticker)
+      dispatch(addWatchlist(stock.ticker))
+    } else {
+      let payload = watchlist.filter(el => el !== stock.ticker)
+      dispatch(removeWatchlist(payload))
+    }
+    // setTimeout(() => {
+    //   history.push(`/detail/${stock.ticker}`)
+    // }, 2000)
   }
 
   return (
@@ -34,7 +46,11 @@ export default function Card (props) {
               </span>
             </div>
             <div className="col-auto">
-              <i className="far fa-star text-end text-secondary" onClick={addToWatchlist}></i>
+              {
+                watchlist.includes(stock.ticker)
+                  ? <i className="fas fa-star text-end text-primary" onClick={toggleWatchlist}></i>
+                  : <i className="far fa-star text-end text-secondary" onClick={toggleWatchlist}></i>
+              }
             </div>
           </div>
         </h5>
