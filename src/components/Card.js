@@ -5,7 +5,7 @@ import { addWatchlist, removeWatchlist, setDetail } from '../store/actions'
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 export default function Card (props) {
-  const watchlist = useSelector(state=> state.watchlist)
+  const watchlist = useSelector(state=> state.watchlist.watchlist)
   const dispatch = useDispatch()
   const history = useHistory()
 

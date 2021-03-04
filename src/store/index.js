@@ -1,29 +1,38 @@
-import { createStore } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import detailReducer from './reducers/detail'
+import watchlistReducer from './reducers/watchlist'
+import logger from './middlewares/logger'
 
-const initialState = {
-  watchlist: [],
-  detail: {}
-}
+const rootReducer = combineReducers({
+  detail: detailReducer,
+  watchlist: watchlistReducer
+})
 
-function reducer(state = initialState, action) {
-  const { type, payload } = action
-  switch(type) {
-    // case 'COUNTER/INCREMENTED':
-    //   return { ...state, counter: state.counter + payload}
-    // case 'MESSAGE/CHANGEMESSAGE':
-    //   return { ...state, message: payload }
-    case 'WATCHLIST/REMOVEWATCHLIST':
-      return { ...state, watchlist: payload }
-    case 'WATCHLIST/ADDWATCHLIST':
-      return { ...state, watchlist: [...state.watchlist, payload]}
-    case 'DETAIL/SETDETAIL':
-      return { ...state, detail: payload}
-    default:
-      return state
-  }
-}
-
-// jangan lupa di index js kasi store dan provider 
-const store = createStore(reducer)
+const store = createStore(rootReducer, applyMiddleware(/*middlewaredisini. */  logger, thunk))
 
 export default store
+
+// const initialState = {
+//   watchlist: [],
+//   detail: {}
+// }
+
+// function reducer(state = initialState, action) {
+//   const { type, payload } = action
+//   switch(type) {
+//     case 'WATCHLIST/REMOVEWATCHLIST':
+//       return { ...state, watchlist: payload }
+//     case 'WATCHLIST/ADDWATCHLIST':
+//       return { ...state, watchlist: [...state.watchlist, payload]}
+//     case 'DETAIL/SETDETAIL':
+//       return { ...state, detail: payload}
+//     default:
+//       return state
+//   }
+// }
+
+// // jangan lupa di index js kasi store dan provider 
+// const store = createStore(reducer)
+
+// export default store

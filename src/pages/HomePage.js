@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../App.css';
 import Card from '../components/Card'
 // import database from './database.json'
-import Chart from '../components/candlestickchart'
+import Chart from '../components/CandlestickChart'
 import useFetch from '../hooks/useFetch'
 import useFetchObj from '../hooks/useFetchObj'
 
@@ -62,8 +62,11 @@ function HomePage () {
           errorChart ? <h1>{errorChart}</h1> : <></>
         }
         {
-          !chartData.historical ? <h1>Loading...</h1> :
-          <Chart chartData={chartData}/>
+          !chartData.historical 
+          ? <div class="spinner-border text-secondary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          : <Chart chartData={chartData}/>
         }
         <hr/>
         <div className="navbar justify-content-between mb-3">
@@ -90,10 +93,13 @@ function HomePage () {
 
         <div className='row row-cols-xl-3 row-cols-md-2 row-cols-sm-1 row-cols-1 mb-5'>
           {
-            loading ? <h1>Loading...</h1> :
-            list.map((stock, index) => (
-              <Card stock={stock} key={stock.ticker}/>
-            ))
+            loading
+            ? <div class="spinner-border text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            : list.map((stock, index) => (
+                <Card stock={stock} key={stock.ticker}/>
+              ))
           }
         </div>
       </div>

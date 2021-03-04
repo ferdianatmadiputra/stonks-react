@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation, useParams, Switch, Route } from 'react-router-dom'
-import Chart from '../components/candlestickchart'
+import Chart from '../components/CandlestickChart'
 import useFetch from '../hooks/useFetch'
 import { useSelector, useDispatch } from 'react-redux'
 import { addWatchlist, removeWatchlist } from '../store/actions'
@@ -10,8 +10,8 @@ import useFetchObj from '../hooks/useFetchObj'
 
 
 function DetailPage () {
-  const watchlist = useSelector(state => state.watchlist)
-  const detail = useSelector(state => state.detail)
+  const watchlist = useSelector(state => state.watchlist.watchlist)
+  const detail = useSelector(state => state.detail.detail)
   console.log(detail, 'ini isi detail store')
   const history = useHistory()
   const params =useParams()
@@ -43,48 +43,41 @@ function DetailPage () {
     }
   }
 
-
-  // const handleButtonClick = () => {
-  //   console.log('trigger')
-  //   setTimeout(() => {
-  //     history.push('/')
-  //   }, 2000)
-  // }
-    return (
-      <div className="container">
-        <ToastsContainer store={ToastsStore}/>
-        {
-          error ? <h1>{error} error from fetch Key Metrics</h1> : <></>
-        }
-        {
-          errorChart ? <h1>{errorChart} error from fetch chart Data</h1> : <></>
-        }
-        <div className="row p-3 pt-3 justify-content-between">
-          <div className="col justify-content-start d-flex">
-            <h2>{detail.companyName}</h2>
-          </div>
-          <div className="col-auto align-items-center justify-content-end d-flex">
-            {
-              watchlist.includes(detail.ticker)
-                ? <h3>
-                    <i className="fas fa-star text-end text-warning" onClick={toggleWatchlist}></i>
-                  </h3>
-                : <h3>
-                    <i className="far fa-star text-end text-secondary" onClick={toggleWatchlist}></i>
-                  </h3>
-            }
-          </div>
+  return (
+    <div className="container">
+      <ToastsContainer store={ToastsStore}/>
+      {
+        error ? <h1>{error} error from fetch Key Metrics</h1> : <></>
+      }
+      {
+        errorChart ? <h1>{errorChart} error from fetch chart Data</h1> : <></>
+      }
+      <div className="row p-3 pt-3 justify-content-between">
+        <div className="col justify-content-start d-flex">
+          <h2>{detail.companyName}</h2>
         </div>
-        {
-          !chartData.historical ? <h1>Loading...</h1> :
-          <Chart chartData={chartData}/>
-        }
-        <hr />
-        {
-          !keyMetrics ? <h1>Loading...</h1> :
-          <KeyMetrics metrics={keyMetrics} />
-        }
+        <div className="col-auto align-items-center justify-content-end d-flex">
+          {
+            watchlist.includes(detail.ticker)
+              ? <h3>
+                  <i className="fas fa-star text-end text-warning" onClick={toggleWatchlist}></i>
+                </h3>
+              : <h3>
+                  <i className="far fa-star text-end text-secondary" onClick={toggleWatchlist}></i>
+                </h3>
+          }
+        </div>
       </div>
-    )
+      {
+        !chartData.historical ? <h1>Loading...</h1> :
+        <Chart chartData={chartData}/>
+      }
+      <hr />
+      {
+        !keyMetrics ? <h1>Loading...</h1> :
+        <KeyMetrics metrics={keyMetrics} />
+      }
+    </div>
+  )
 }
 export default DetailPage

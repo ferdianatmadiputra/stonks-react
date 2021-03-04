@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import useDebounce from './useDebounce';
 
-
 export default function useFetchObj(url, reload) {
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(false)
@@ -23,8 +22,7 @@ export default function useFetchObj(url, reload) {
       setData(result)
     })
     .catch((err) => {
-      console.log('errir disini kah?')
-      console.log('error fetchnya bro', err)
+      console.log('error fetchnya', err)
       setError(err)
     })
     .finally((_) => {
