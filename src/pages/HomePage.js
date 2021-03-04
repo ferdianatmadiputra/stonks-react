@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import '../App.css';
 import Card from '../components/Card'
 import { useSelector, useDispatch } from 'react-redux'
 import Chart from '../components/CandlestickChart'
-import useFetch from '../hooks/useFetch'
+// import useFetch from '../hooks/useFetch'
 // import useFetchObj from '../hooks/useFetchObj'
 import { fetchChart, fetchList, filterList } from '../store/actions'
 

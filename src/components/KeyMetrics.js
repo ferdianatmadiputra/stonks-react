@@ -11,8 +11,20 @@ export default function KeyMetrics (props) {
       {
         metrics.map((metric) => (
           <div className="text-start">
-            <p>Market Cap: {millify(metric.marketCapTTM, { space: true})} USD<br />
-              Enterprise Value: {millify(metric.enterpriseValueTTM, { space: true})} USD</p>
+            <p>Market Cap: 
+              {
+                metric.marketCapTTM ?
+                <span> {millify(metric.marketCapTTM, { space: true})} USD<br /></span>
+                : <span>no data</span>
+              }
+              
+              Enterprise Value: 
+              {
+                metric.enterpriseValueTTM ?
+                <span> {millify(metric.enterpriseValueTTM, { space: true})} USD</span>
+                : <span>no data</span>
+              }
+            </p>
             <div className="row">
               <div className="col-12 col-xl-6 col-lg-6 mb-3 border-start border-success rounded-lg">
                 <div className="row">
