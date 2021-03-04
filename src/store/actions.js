@@ -1,3 +1,96 @@
+export function fetchDetailMetrics(url) {
+  return async (dispatch) => {
+    try {
+      // let apikey='d6685846f598c9b1c22d6c036f6d59ff'
+      // const url = `https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=${apikey}`
+      dispatch(setDetailLoading(true))
+      const response = await fetch(url)
+      if (!response.ok) {
+        console.log(response, 'ini yg response not oke')
+        throw Error(response.statusText)
+      } else {
+        const data = await response.json()
+        dispatch(setDetailMetrics(data))
+        dispatch(setDetailLoading(false))
+      }
+    } catch(err) {
+      console.log(err)
+      dispatch(setDetailErrorMetrics(err))
+    } 
+  }
+}
+
+export function fetchDetailChart(url) {
+  return async (dispatch) => {
+    try {
+      // let apikey='d6685846f598c9b1c22d6c036f6d59ff'
+      // const url = `https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=${apikey}`
+      dispatch(setDetailLoading(true))
+      const response = await fetch(url)
+        if (!response.ok) {
+          console.log(response, 'ini yg response not oke')
+          throw Error(response.statusText)
+        } else {
+          const data = await response.json()
+          dispatch(setDetailChart(data))
+          dispatch(setDetailLoading(false))
+        }
+    } catch(err) {
+      console.log(err)
+      dispatch(setDetailErrorMetrics(err))
+    } 
+  }
+}
+
+export function setDetail (payload) {
+  return { type: 'DETAIL/SETDETAIL', payload}
+}
+
+export function setDetailChart (payload) {
+  return { type: 'DETAIL/SETCHART', payload}
+}
+
+export function setDetailMetrics (payload) {
+  return { type: 'DETAIL/SETMETRICS', payload}
+}
+
+export function setDetailErrorChart (payload) {
+  return { type: 'DETAIL/SETERRORCHART', payload}
+}
+
+export function setDetailErrorMetrics (payload) {
+  return { type: 'DETAIL/SETERRORMETRICS', payload}
+}
+
+export function setDetailLoading (payload) {
+  return { type: 'DETAIL/SETLOADING', payload}
+}
+
+export function setDetailLoadingChart (payload) {
+  return { type: 'DETAIL/SETLOADINGCHART', payload}
+}
+
+export function fetchWatchlist(url) {
+  return async (dispatch) => {
+    try {
+      // let apikey='d6685846f598c9b1c22d6c036f6d59ff'
+      // const url = `https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=${apikey}`
+      dispatch(setLoadingWatchlist(true))
+      const response = await fetch(url)
+        if (!response.ok) {
+          console.log(response, 'ini yg response not oke')
+          throw Error(response.statusText)
+        } else {
+          const data = await response.json()
+          dispatch(setFullDataWatchlist(data))
+          dispatch(setLoadingWatchlist(false))
+        }
+    } catch(err) {
+      console.log(err)
+      dispatch(setErrorWatchlist(err))
+    } 
+  }
+}
 
 export function addWatchlist (payload) {
   return { type: 'WATCHLIST/ADDWATCHLIST', payload }
@@ -7,9 +100,18 @@ export function removeWatchlist (payload) {
   return { type: 'WATCHLIST/REMOVEWATCHLIST', payload }
 }
 
-export function setDetail (payload) {
-  return { type: 'DETAIL/SETDETAIL', payload}
+export function setErrorWatchlist (payload) {
+  return { type: 'WATCHLIST/SETERROR', payload }
 }
+
+export function setLoadingWatchlist (payload) {
+  return { type: 'WATCHLIST/SETLOADING', payload }
+}
+
+export function setFullDataWatchlist (payload) {
+  return { type: 'WATCHLIST/SETFULLDATA', payload }
+}
+
 
 // export function fetchStocks() {
 //   return async (dispatch) => {
@@ -32,10 +134,16 @@ export function fetchChart() {
       const url = `https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=${apikey}`
       dispatch(setHomeLoadingChart(true))
       const response = await fetch(url)
-      const data = await response.json()
-      dispatch(setHomeChart(data))
-      dispatch(setHomeLoadingChart(false))
+      if (!response.ok) {
+        console.log(response, 'ini yg response not oke')
+        throw Error(response.statusText)
+      } else {
+        const data = await response.json()
+        dispatch(setHomeChart(data))
+        dispatch(setHomeLoadingChart(false))
+      }
     } catch(err) {
+      console.log(err)
       dispatch(setHomeErrorChart(err))
     } 
   }
@@ -52,6 +160,7 @@ export function fetchList(url) {
       dispatch(setHomeList(data))
       dispatch(setHomeLoadingList(false))
     } catch(err) {
+      console.log(err)
       dispatch(setHomeErrorList(err))
     } 
   }
