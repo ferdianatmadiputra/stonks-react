@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import detailReducer from './reducers/detail'
 import watchlistReducer from './reducers/watchlist'
+import homeReducer from './reducers/home'
 import logger from './middlewares/logger'
 
 const rootReducer = combineReducers({
   detail: detailReducer,
-  watchlist: watchlistReducer
+  watchlist: watchlistReducer,
+  home: homeReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(/*middlewaredisini. */  logger, thunk))

@@ -2,28 +2,47 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../App.css';
 import Card from '../components/Card'
-// import database from './database.json'
+import { useSelector, useDispatch } from 'react-redux'
 import Chart from '../components/CandlestickChart'
 import useFetch from '../hooks/useFetch'
-import useFetchObj from '../hooks/useFetchObj'
+// import useFetchObj from '../hooks/useFetchObj'
+import { fetchChart, fetchList, filterList } from '../store/actions'
+
 
 function HomePage () {
+  const dispatch = useDispatch()
+  const chartData = useSelector(state => state.home.homeChart)
+  const errorChart = useSelector(state => state.home.errorChart)
+  // const chartLoading = useSelector(state => state.home.loadingChart)
+  const list = useSelector(state => state.home.homeList)
+  const loading = useSelector(state => state.home.loadingList)
+  const error = useSelector(state => state.home.errorList)
   const [reload, setReload] = useState(0)
   // using hooks fetch
   let apikey='d6685846f598c9b1c22d6c036f6d59ff'
   const [url, setUrl] = useState(`https://financialmodelingprep.com/api/v3/actives?apikey=${apikey}`)
   // const urlHistorical = `https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=${apikey}`
   // const [url, setUrl] = useState('http://localhost:3000/most-active')
-  const [list, loading, filterData, setList, setLoading, error] = useFetch(url, reload)
+  // const [list, loading, filterData, setList, setLoading, error] = useFetch(url, reload)
   // JANGAN LUPA HILANGKAN INDEKS 0 DI candlestickchart.js KALO BALIK KE API!!
   // const urlHistorical = 'http://localhost:3000/historicalStockList?symbol=5EGSPC'
   // const [urlChart, setUrlChart] = useState(urlHistorical)
   const [viewTitle, setViewTitle] = useState('Most-Active')
-  const [chartData, chartLoading, filterChart, setChartData, setChartLoading, errorChart] =useFetchObj('https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=d6685846f598c9b1c22d6c036f6d59ff')
+  // const [chartData, chartLoading, filterChart, setChartData, setChartLoading, errorChart] =useFetchObj('https://financialmodelingprep.com/api/v3/historical-price-full/%5EGSPC?timeseries=100&apikey=d6685846f598c9b1c22d6c036f6d59ff')
+
+  useEffect(()=> {
+    dispatch(fetchChart())
+  }, [dispatch])
+
+  useEffect(()=> {
+    dispatch(fetchList(url))
+  }, [url, reload, dispatch])
 
   function searchInput (e) {
     if (e.target.value.length > 0) {
-      filterData(e)
+      console.log(e.target.value)
+      let filteredData = list.filter(datum => datum.ticker.toLowerCase().includes(e.target.value.toLowerCase()))
+      dispatch(filterList(filteredData))
     } else if(e.target.value.length === 0) {
       let currReload = reload
       setReload(currReload + 1)
@@ -53,7 +72,6 @@ function HomePage () {
   return (
     <div className='container'>
       <div>
-        {/* <h1 className="display-1 text-center bg-secondary py-5 mb-3 text-light">New York Stock Exchange</h1> */}
         <h4 className="mt-5"><b>S&P 500 INDEX</b></h4>
         {
           error ? <h1>{error}</h1> : <></>
@@ -63,6 +81,7 @@ function HomePage () {
         }
         {
           !chartData.historical 
+          // chartLoading
           ? <div class="spinner-border text-secondary" role="status">
               <span class="sr-only">Loading...</span>
             </div>
