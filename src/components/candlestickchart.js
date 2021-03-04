@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactApexChart from "react-apexcharts"
 const dayjs = require('dayjs')
+
 export default function Chart (props) {
-      const chartData = props.chartData
-      console.log(chartData)
-      if (chartData && chartData.length > 0) {
-        const historicals = chartData[0].historical
+      let chartData = props.chartData
+      console.log(chartData, 'ini isi chartData di chart')
+      // if (chartData && chartData.length > 0) {
+      if (chartData) {
+        // let historicals = chartData.historical
+        // const historicals = chartData[0].historical
         let candlesticks = []
-        historicals.map((el) => {
+        chartData.historical.map((el) => {
           let aCandle = {
             x: new Date(el.date), //can also straight el.label
             y: [el.open, el.high, el.low, el.close] //O,H,L,C
@@ -15,7 +18,7 @@ export default function Chart (props) {
           candlesticks.push(aCandle)
           return el
         })
-        console.log(chartData[0], 'isi chartdata')
+        // console.log(chartData[0], 'isi chartdata')
         const series = [{
           name: 'candle',
           data: candlesticks.reverse()
@@ -32,7 +35,8 @@ export default function Chart (props) {
           type: 'candlestick',
         },
         title: {
-          text: `${chartData[0].symbol}`,
+          text: `${chartData.symbol}`,
+          // text: `${chartData[0].symbol}`,
           align: 'left'
         },
         tooltip: {
@@ -66,8 +70,10 @@ export default function Chart (props) {
         <div id="html-dist"></div>
       </div>
     );
-  }
-  return (
-    <h1>loading...</h1>
-  )
+  } else {
+
+    return (
+      <h1>loading...</h1>
+      )
+    }
   }

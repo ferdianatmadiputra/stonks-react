@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import useDebounce from './useDebounce';
 
 
-export default function useFetch(url, reload) {
-  const [data, setData] = useState([])
+export default function useFetchObj(url, reload) {
+  const [data, setData] = useState({})
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   console.log('masuk pembukaan fetch')
@@ -13,7 +13,6 @@ export default function useFetch(url, reload) {
     fetch(url)
     .then((response) => {
       if (!response.ok) {
-        console.log(response, 'ini yg response not oke')
         throw Error(response.statusText)
       } else {
         return response.json()

@@ -7,3 +7,7 @@ export function addWatchlist (payload) {
 export function removeWatchlist (payload) {
   return { type: 'WATCHLIST/REMOVEWATCHLIST', payload }
 }
+
+export function setDetail (payload) {
+  return { type: 'DETAIL/SETDETAIL', payload}
+}

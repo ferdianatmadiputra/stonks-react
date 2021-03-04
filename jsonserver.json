@@ -635,8 +635,7 @@
       "companyName": "Huttig Building Products Inc"
     }
   ],
-  "key-metrics-ttm": {
-    "AAPL": [
+  "key-metrics-ttm": [
       {
       "revenuePerShareTTM": 17.368345625442608,
       "netIncomePerShareTTM": 3.7749956170960477,
@@ -697,8 +696,69 @@
       "roeTTM": 0.9653599903358299,
       "capexPerShareTTM": -0.10941759547128072
       }
-      ]
-  },
+  ],
+  "key-metrics-ttm-2": [
+    {
+    "revenuePerShareTTM": 769.0517928286853,
+    "netIncomePerShareTTM": 42.49203187250996,
+    "operatingCashFlowPerShareTTM": 6.103585657370518,
+    "freeCashFlowPerShareTTM": -7.432270916334661,
+    "cashPerShareTTM": 83.90836653386454,
+    "bookValuePerShareTTM": 186.06374501992033,
+    "tangibleBookValuePerShareTTM": 629.9083665338645,
+    "shareholdersEquityPerShareTTM": 186.06374501992033,
+    "interestDebtPerShareTTM": 66.77689243027888,
+    "marketCapTTM": 1553454060000,
+    "enterpriseValueTTM": 1543207060000,
+    "peRatioTTM": 72.82612441985843,
+    "priceToSalesRatioTTM": 4.023825220688797,
+    "pocfratioTTM": 507.00197780678855,
+    "pfcfRatioTTM": -416.3639935674082,
+    "pbRatioTTM": 16.631558177379983,
+    "ptbRatioTTM": 16.631558177379983,
+    "evToSalesTTM": 3.9972829893489163,
+    "enterpriseValueOverEBITDATTM": 30.213937269950662,
+    "evToOperatingCashFlowTTM": 503.65765665796346,
+    "evToFreeCashFlowTTM": -413.6175448941303,
+    "earningsYieldTTM": 0.01373133621988152,
+    "freeCashFlowYieldTTM": -0.0024017446644028855,
+    "debtToEquityTTM": 2.4387713588283155,
+    "debtToAssetsTTM": 0.709198461993493,
+    "netDebtToEBITDATTM": -0.20062260161328216,
+    "currentRatioTTM": 1.0502274795268425,
+    "interestCoverageTTM": 14.680024286581663,
+    "incomeQualityTTM": 0.1436407107027331,
+    "dividendYieldTTM": null,
+    "dividendYieldPercentageTTM": null,
+    "payoutRatioTTM": null,
+    "salesGeneralAndAdministrativeToRevenueTTM": null,
+    "researchAndDevelopementToRevenueTTM": 0.1107018525425836,
+    "intangiblesToTotalAssetsTTM": 0.015507713382835972,
+    "capexToOperatingCashFlowTTM": -0.45091979396615156,
+    "capexToRevenueTTM": -56.8158940397351,
+    "capexToDepreciationTTM": -0.7891096394407653,
+    "stockBasedCompensationToRevenueTTM": 0.004551058891789962,
+    "grahamNumberTTM": 421.77019588084096,
+    "roicTTM": 0.1241106719367589,
+    "returnOnTangibleAssetsTTM": 0.0674574813259375,
+    "grahamNetNetTTM": -225.28087649402391,
+    "workingCapitalTTM": 6348000000,
+    "tangibleAssetValueTTM": 88423000000,
+    "netCurrentAssetValueTTM": -189.3585657370518,
+    "investedCapitalTTM": null,
+    "averageReceivablesTTM": 22687000000,
+    "averagePayablesTTM": 65436500000,
+    "averageInventoryTTM": 23765000000,
+    "daysSalesOutstandingTTM": 5.721279373368146,
+    "daysPayablesOutstandingTTM": 22.371471748285778,
+    "daysOfInventoryOnHandTTM": 7.338523694157075,
+    "receivablesTurnoverTTM": 15.730747290359384,
+    "payablesTurnoverTTM": 4.022980741394284,
+    "inventoryTurnoverTTM": 12.264047068711914,
+    "roeTTM": 0.22837351719412444,
+    "capexPerShareTTM": -13.53585657370518
+    }
+  ],
   "historicalStockList": [
     {
       "symbol": "GOOG",

@@ -1,7 +1,8 @@
 import { createStore } from 'redux'
 
 const initialState = {
-  watchlist: []
+  watchlist: [],
+  detail: {}
 }
 
 function reducer(state = initialState, action) {
@@ -15,6 +16,8 @@ function reducer(state = initialState, action) {
       return { ...state, watchlist: payload }
     case 'WATCHLIST/ADDWATCHLIST':
       return { ...state, watchlist: [...state.watchlist, payload]}
+    case 'DETAIL/SETDETAIL':
+      return { ...state, detail: payload}
     default:
       return state
   }

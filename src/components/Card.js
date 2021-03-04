@@ -1,14 +1,12 @@
-import React, { }  from 'react'
-import { useHistory, useLocation, useParams, Switch, Route } from 'react-router-dom'
-import { useSelector, useDispatch, shallowEqual } from 'react-redux'
-import { addWatchlist, removeWatchlist } from '../store/actions'
-
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { addWatchlist, removeWatchlist, setDetail } from '../store/actions'
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 export default function Card (props) {
-  const dispatch = useDispatch()
   const watchlist = useSelector(state=> state.watchlist)
-
-
+  const dispatch = useDispatch()
   const history = useHistory()
 
   let stock = props.stock
@@ -17,18 +15,19 @@ export default function Card (props) {
 
   function ToDetailPage () {
     console.log('trigger')
-    setTimeout(() => {
-      history.push(`/detail/${stock.ticker}`)
-    }, 2000)
+    dispatch(setDetail(stock))
+    history.push(`/detail/${stock.ticker}`)
   }
 
   function toggleWatchlist () {
     if (!watchlist.includes(stock.ticker)) {
       console.log('trigger addWatchlist', stock.ticker)
       dispatch(addWatchlist(stock.ticker))
+      ToastsStore.info(`⭐ success add ${stock.ticker} to your watchlist`)
     } else {
       let payload = watchlist.filter(el => el !== stock.ticker)
       dispatch(removeWatchlist(payload))
+      ToastsStore.info(`🗑️ success remove ${stock.ticker} from your watchlist`)
     }
     // setTimeout(() => {
     //   history.push(`/detail/${stock.ticker}`)
@@ -37,6 +36,7 @@ export default function Card (props) {
 
   return (
     <div className="col mb-3">
+      <ToastsContainer store={ToastsStore}/>
       <div className='card shadow-sm'>
         <h5 className="card-header">
           <div className="row justify-content-between">
@@ -48,7 +48,7 @@ export default function Card (props) {
             <div className="col-auto">
               {
                 watchlist.includes(stock.ticker)
-                  ? <i className="fas fa-star text-end text-primary" onClick={toggleWatchlist}></i>
+                  ? <i className="fas fa-star text-end text-warning" onClick={toggleWatchlist}></i>
                   : <i className="far fa-star text-end text-secondary" onClick={toggleWatchlist}></i>
               }
             </div>

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+
 }
 
 .App-logo {
@@ -35,4 +37,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#wrapper {
+  min-height: 100vh
+}
+.footer {
+  margin-top: -50px; /* negative value of footer height */
+  height: 50px;
 }
